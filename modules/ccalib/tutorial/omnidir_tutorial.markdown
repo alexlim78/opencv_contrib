@@ -90,8 +90,8 @@ cv::Mat K1, K2, xi1, xi2, D1, D2;
 int flags = 0;
 cv::TermCriteria critia(cv::TermCriteria::COUNT + cv::TermCriteria::EPS, 200, 0.0001);
 std::vector<cv::Mat> rvecsL, tvecsL;
-cv::Mat rvec, tvec;
-double rms = cv::omnidir::calibrate(objectPoints, imagePoints1, imagePoints2, imgSize1, imgSize2, K1, xi1, D1, K2, xi2, D2, rvec, tvec, rvecsL, tvecsL, flags, critia, idx);
+cv::Vec3f rvec, tvec;
+double rms = cv::omnidir::stereoCalibrate(objectPoints, imagePoints1, imagePoints2, imgSize1, imgSize2, K1, xi1, D1, K2, xi2, D2, rvec, tvec, rvecsL, tvecsL, flags, critia, idx);
 ```
 Here ```rvec``` and ```tvec``` are the transform between the first and the second camera. ```rvecsL``` and ```tvecsL``` are the transforms between patterns and the first camera.
 
